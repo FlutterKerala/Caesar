@@ -2,6 +2,7 @@ import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
+import 'commands/register.dart';
 import 'commands/start.dart';
 import 'commands/week.dart';
 import 'constants.dart';
@@ -24,7 +25,7 @@ void main(List<String> args) async {
   
   teleDart
       .onCommand('register')
-      .listen((Message message) => week(message, teleDart));
+      .listen((Message message) => register(message, teleDart));
 
   teleDart.onMessage().listen((event) async {
     if (event.document != null) {

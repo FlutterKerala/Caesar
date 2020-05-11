@@ -1,5 +1,4 @@
 import 'dart:io' as io;
-import 'dart:math';
 
 import 'package:grizzly_io/io_loader.dart';
 import 'package:image/image.dart';

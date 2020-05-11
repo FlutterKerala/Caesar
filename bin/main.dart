@@ -21,6 +21,10 @@ void main(List<String> args) async {
   teleDart
       .onCommand('week')
       .listen((Message message) => week(message, teleDart));
+  
+  teleDart
+      .onCommand('register')
+      .listen((Message message) => week(message, teleDart));
 
   teleDart.onMessage().listen((event) async {
     if (event.document != null) {

@@ -57,7 +57,7 @@ Future<Message> week(Message message, TeleDart teleDart) async {
   for (List team in csv) {
     drawString(image, arial_24, 30, startPoint, team[1].replaceAll('@', ''),
         color: getColor(0, 0, 0));
-    drawString(image, arial_24, 200, startPoint, team[2] + ' Points',
+    drawString(image, arial_24, 200, startPoint, team[2] + ' Point(s)',
         color: getColor(119, 0, 207));
     startPoint += 30;
   }

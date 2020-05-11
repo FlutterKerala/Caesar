@@ -11,7 +11,7 @@ Future<Message> register(Message message, TeleDart teleDart) async {
   DateTime regTime;
   File jsonFile;
 
-  List<Map<String, dynamic>> users;
+  List<Map<String, dynamic>> users = [];
 
   // get expirience from reponse
   RegExp exp = RegExp(r'^\/register (.+)$');
@@ -31,22 +31,28 @@ Future<Message> register(Message message, TeleDart teleDart) async {
     'time' : regTime,
   };
 
+  print(result);
+
   //getting the json path
-  final String filePath = join(dirname(io.Platform.script.toFilePath()), 'data', 'registered.json'); 
+  final String filePath = join(dirname(io.Platform.script.toFilePath()), 'data', 'registered.json');
+  print(filePath); 
 
   //getting the json File
-  jsonFile = File(file_path: dirname(io.Platform.script.toFilePath()) +'/data/registered.json');
+  jsonFile = File(file_path: join(dirname(io.Platform.script.toFilePath()), 'data', 'registered.json'));
 
 
   try {
+    print("entered users");
     users = jsonDecode(filePath);
+    print(users);
     users.add(result);
     await io.File(jsonFile.file_path).writeAsStringSync(jsonEncode(users));
-    return teleDart.replyMessage(message, 'User Added');
+    return teleDart.replyMessage(message, 'User Added'); 
   } catch (e) {
+    print(e.toString());
     return teleDart.replyMessage(message, 'OOPs Something went Wrong!');
   }
 
-  
+     
 
 }

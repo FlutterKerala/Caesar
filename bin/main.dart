@@ -2,7 +2,10 @@ import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
-import 'commands/register.dart';
+import 'commands/clear.dart';
+import 'commands/details.dart';
+import 'commands/registerSolo.dart';
+import 'commands/registerTeam.dart';
 import 'commands/start.dart';
 import 'commands/week.dart';
 import 'constants.dart';
@@ -22,10 +25,22 @@ void main(List<String> args) async {
   teleDart
       .onCommand('week')
       .listen((Message message) => week(message, teleDart));
+
+  teleDart
+      .onCommand('registerSolo')
+      .listen((Message message) => registerSolo(message, teleDart));
   
   teleDart
-      .onCommand('register')
-      .listen((Message message) => register(message, teleDart));
+      .onCommand('registerTeam')
+      .listen((Message message) => registerTeam(message, teleDart));
+
+  teleDart
+      .onCommand('clear')
+      .listen((Message message) => clear(message, teleDart));
+  
+  teleDart
+      .onCommand('details')
+      .listen((Message message) => details(message, teleDart));
 
   teleDart.onMessage().listen((event) async {
     if (event.document != null) {

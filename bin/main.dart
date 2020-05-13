@@ -27,11 +27,11 @@ void main(List<String> args) async {
       .listen((Message message) => week(message, teleDart));
 
   teleDart
-      .onCommand('registerSolo')
+      .onCommand('registersolo')
       .listen((Message message) => registerSolo(message, teleDart));
   
   teleDart
-      .onCommand('registerTeam')
+      .onCommand('registerteam')
       .listen((Message message) => registerTeam(message, teleDart));
 
   teleDart

@@ -15,7 +15,7 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
   List team, solo;
 
   // get expirience from reponse
-  RegExp exp = RegExp(r'^\/registerSolo (.+)$');
+  RegExp exp = RegExp(r'^\/registersolo (.+)$');
   try {
     expr = exp.firstMatch(message.text).group(1);
   } catch (e) {

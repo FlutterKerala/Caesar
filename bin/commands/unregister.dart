@@ -52,6 +52,7 @@ Future<Message> unregister(Message message, TeleDart teleDart) async {
 
     //encoding back the user to the file
     await io.File(teamFile.path).writeAsStringSync(jsonEncode(team));
+    await io.File(teamFile.path).writeAsStringSync(jsonEncode(solo));
     return teleDart.replyMessage(message,
         '@${message.from.username} you have been un-registered from this weeks challenge.');
   } catch (e) {

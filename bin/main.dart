@@ -7,6 +7,7 @@ import 'commands/details.dart';
 import 'commands/registerSolo.dart';
 import 'commands/registerTeam.dart';
 import 'commands/start.dart';
+import 'commands/unregister.dart';
 import 'commands/week.dart';
 import 'constants.dart';
 import 'utils/downloadcsv.dart';
@@ -29,7 +30,7 @@ void main(List<String> args) async {
   teleDart
       .onCommand('registerSolo')
       .listen((Message message) => registerSolo(message, teleDart));
-  
+
   teleDart
       .onCommand('registerTeam')
       .listen((Message message) => registerTeam(message, teleDart));
@@ -37,10 +38,14 @@ void main(List<String> args) async {
   teleDart
       .onCommand('clear')
       .listen((Message message) => clear(message, teleDart));
-  
+
   teleDart
       .onCommand('details')
       .listen((Message message) => details(message, teleDart));
+  
+  teleDart
+      .onCommand('unregister')
+      .listen((Message message) => unregisteradde(message, teleDart));
 
   teleDart.onMessage().listen((event) async {
     if (event.document != null) {

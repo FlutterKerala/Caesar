@@ -45,7 +45,7 @@ void main(List<String> args) async {
   
   teleDart
       .onCommand('unregister')
-      .listen((Message message) => unregisteradde(message, teleDart));
+      .listen((Message message) => unregister(message, teleDart));
 
   teleDart.onMessage().listen((event) async {
     if (event.document != null) {

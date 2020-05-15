@@ -22,6 +22,6 @@
   dart bin/main.dart
 ```
 
-4. [./ceaser.png](And it begins)
+4. ![And it begins](./caeser.jpg)
 
 #### Leaderboard is created by parsing CSV & make sure you upload csv file with name as week[weeknumber].csv

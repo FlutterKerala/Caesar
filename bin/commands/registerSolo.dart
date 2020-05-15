@@ -19,11 +19,12 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
   try {
     expr = exp.firstMatch(message.text).group(1);
   } catch (e) {
-    return teleDart.replyMessage(message, 'Please provide Your expirience along with the command %0AEg: /registersolo 1');
+    return teleDart.replyMessage(message,
+        'Please provide Your experience along with the command \n<code>eg: /registersolo 1</code>',parse_mode: 'html',withQuote: true);
   }
 
   //Adding user name & time of registration
-  userName = message.from.username??message.from.id;
+  userName = message.from.username ?? message.from.id;
   regTime = DateTime.now().toLocal().toString();
 
   dynamic result = {
@@ -32,16 +33,17 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
     'time': regTime,
   };
 
-  
   //getting the json File
-  final io.File teamFile = io.File(join(dirname(io.Platform.script.toFilePath()), 'data', 'registeredTeam.json'));
-  final io.File solofile = io.File(join(dirname(io.Platform.script.toFilePath()), 'data', 'registeredSolo.json'));
+  final io.File teamFile = io.File(join(
+      dirname(io.Platform.script.toFilePath()), 'data', 'registeredTeam.json'));
+  final io.File solofile = io.File(join(
+      dirname(io.Platform.script.toFilePath()), 'data', 'registeredSolo.json'));
 
   try {
     //Decode the jsonFile to List
     team = jsonDecode(teamFile.readAsStringSync());
     solo = jsonDecode(solofile.readAsStringSync());
-    
+
     //Checking if the user Already exists
     team.forEach((element) {
       if (element['userName'] == userName) {
@@ -55,14 +57,17 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
         registered = true;
         return;
       }
-     });
+    });
     if (registered) {
-      return teleDart.replyMessage(message, 'Hey @${message.from.username} you have already registered');
+      return teleDart.replyMessage(
+          message, 'Hey @${message.from.username} you have already registered');
     }
     //ading and encoding back the user to the file
     solo.add(result);
     await io.File(solofile.path).writeAsStringSync(jsonEncode(solo));
-    return teleDart.replyMessage(message,'<a href="tg://user?id=${message.from.id}">${message.from.first_name}</a> thank you for registering.\nHope to see you on the leaderBoard.',parse_mode: 'HTML');
+    return teleDart.replyMessage(message,
+        '<a href="tg://user?id=${message.from.id}">${message.from.first_name}</a> thank you for registering.\nHope to see you on the leaderBoard.',
+        parse_mode: 'HTML', withQuote: true);
   } catch (e) {
     print(e.toString());
     return teleDart.replyMessage(message, 'Oops Something went Wrong!');

@@ -23,7 +23,9 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   } catch (e) {
     return teleDart.replyMessage(
       message,
-      'Please provide Your expirience along with the command %0AEg: /registerteam 1',
+      'Please provide Your experience along with the command \n<code>eg: /registersolo 1</code>',
+      parse_mode: 'html',
+      withQuote: true,
     );
   }
 
@@ -71,7 +73,8 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
     team.add(result);
     await io.File(teamFile.path).writeAsStringSync(jsonEncode(team));
     return teleDart.replyMessage(message,
-        '<a href="tg://user?id=${message.from.id}">${message.from.first_name}</a> thank you for registering.\nHope to see you on the leaderBoard.',parse_mode: 'HTML');
+        '<a href="tg://user?id=${message.from.id}">${message.from.first_name}</a> thank you for registering.\nHope to see you on the leaderBoard.',
+        parse_mode: 'HTML', withQuote: true);
   } catch (e) {
     print(e.toString());
     return teleDart.replyMessage(message, 'Oops Something went Wrong!');

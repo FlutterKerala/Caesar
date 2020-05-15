@@ -11,9 +11,12 @@ import 'commands/unregister.dart';
 import 'commands/week.dart';
 import 'constants.dart';
 import 'utils/downloadcsv.dart';
+import 'dart:io' show Platform;
 
 void main(List<String> args) async {
-  var teleDart = TeleDart(Telegram(Constants.botKey), Event());
+  Map<String, String> envVars = Platform.environment;
+  
+  var teleDart = TeleDart(Telegram(envVars['BOTTOKEN']), Event());
 
   await teleDart
       .start()
@@ -42,7 +45,7 @@ void main(List<String> args) async {
   teleDart
       .onCommand('details')
       .listen((Message message) => details(message, teleDart));
-  
+
   teleDart
       .onCommand('unregister')
       .listen((Message message) => unregister(message, teleDart));

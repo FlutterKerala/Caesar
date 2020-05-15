@@ -4,6 +4,8 @@ import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'dart:io' as io;
 
+import '../constants.dart';
+
 Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   String expr;
   String userName;
@@ -19,7 +21,7 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   try {
     expr = exp.firstMatch(message.text).group(1);
   } catch (e) {
-    return teleDart.replyMessage(message, 'Please provide Your expirience');
+    return teleDart.replyMessage(message, 'Please provide Your expirience along with the command %0AEg: /registerteam 1',);
   }
 
   //Adding user name & time of registration

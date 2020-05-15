@@ -19,7 +19,7 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
   try {
     expr = exp.firstMatch(message.text).group(1);
   } catch (e) {
-    return teleDart.replyMessage(message, 'Please provide Your expirience');
+    return teleDart.replyMessage(message, 'Please provide Your expirience along with the command %0AEg: /registersolo 1');
   }
 
   //Adding user name & time of registration

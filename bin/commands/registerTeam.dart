@@ -71,7 +71,7 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
     team.add(result);
     await io.File(teamFile.path).writeAsStringSync(jsonEncode(team));
     return teleDart.replyMessage(message,
-        '@${message.from.username} thank you for registering.\nHope to see you on the leaderBoard.');
+        '<a href="tg://user?id=${message.from.id}">${message.from.first_name}</a> thank you for registering.\nHope to see you on the leaderBoard.',parse_mode: 'HTML');
   } catch (e) {
     print(e.toString());
     return teleDart.replyMessage(message, 'Oops Something went Wrong!');

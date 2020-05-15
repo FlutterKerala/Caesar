@@ -62,7 +62,7 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
     //ading and encoding back the user to the file
     solo.add(result);
     await io.File(solofile.path).writeAsStringSync(jsonEncode(solo));
-    return teleDart.replyMessage(message, '@${message.from.username} thank you for registering.\nHope to see you on the leaderBoard.');
+    return teleDart.replyMessage(message,'<a href="tg://user?id=${message.from.id}">${message.from.first_name}</a> thank you for registering.\nHope to see you on the leaderBoard.',parse_mode: 'HTML');
   } catch (e) {
     print(e.toString());
     return teleDart.replyMessage(message, 'Oops Something went Wrong!');

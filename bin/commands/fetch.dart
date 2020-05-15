@@ -55,8 +55,12 @@ Future<Message> fetch(Message message, TeleDart teleDart) async {
     if (isNumeric(element['userName'])) {
       ChatMember userInfo = await teleDart.telegram
           .getChatMember(-1001256945986, int.parse(element['userName']));
-      uName =
-          '<a href="tg://user?id=${element['userName']}">${userInfo.user.first_name + userInfo.user.last_name ?? ""}</a>';
+      try {
+        uName =
+            '<a href="tg://user?id=${element['userName']}">${userInfo.user.first_name + userInfo.user.last_name ?? ""}</a>';
+      } catch (e) {
+        print(element);
+      }
     } else {
       uName = '@${element['userName']}';
     }

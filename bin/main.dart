@@ -4,9 +4,11 @@ import 'package:teledart/telegram.dart';
 
 import 'commands/clear.dart';
 import 'commands/details.dart';
+import 'commands/fetch.dart';
 import 'commands/registerSolo.dart';
 import 'commands/registerTeam.dart';
 import 'commands/start.dart';
+import 'commands/stopreg.dart';
 import 'commands/unregister.dart';
 import 'commands/week.dart';
 import 'constants.dart';
@@ -46,6 +48,14 @@ void main(List<String> args) async {
   teleDart
       .onCommand('unregister')
       .listen((Message message) => unregister(message, teleDart));
+    
+  teleDart
+      .onCommand('stopreg')
+      .listen((Message message) => stopreg(message, teleDart));
+
+  teleDart
+      .onCommand('fetch')
+      .listen((Message message) => fetch(message, teleDart));
 
   teleDart.onMessage().listen((event) async {
     if (event.document != null) {

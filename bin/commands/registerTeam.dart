@@ -4,6 +4,8 @@ import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'dart:io' as io;
 
+import 'stopreg.dart';
+
 Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   String expr;
   String userName;
@@ -12,6 +14,7 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   bool registered = false;
 
   List team ,solo;
+
 
   // get expirience from reponse
   RegExp exp = RegExp(r'^\/registerteam (.+)$');
@@ -25,6 +28,10 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   userName = message.from.username;
   regTime = DateTime.now().toLocal().toString();
 
+  if(DateTime.parse(regTime).isAfter(stopTime)){
+    return teleDart.replyMessage(message, '${message.from.first_name} @${message.from.username} you are late, the registration is over. Hope to see you next week');
+  }
+  
   dynamic result = {
     'userName': userName,
     'expirience': expr,

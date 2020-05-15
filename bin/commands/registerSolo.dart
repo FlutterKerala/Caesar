@@ -15,24 +15,25 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
 
   List team, solo;
 
-
   // get expirience from reponse
   RegExp exp = RegExp(r'^\/registersolo (.+)$');
   try {
     expr = exp.firstMatch(message.text).group(1);
   } catch (e) {
     return teleDart.replyMessage(message,
-        'Please provide Your experience along with the command \n<code>eg: /registersolo 1</code>',parse_mode: 'html',withQuote: true);
+        'Please provide Your experience along with the command \n<code>eg: /registersolo 1</code>',
+        parse_mode: 'html', withQuote: true);
   }
 
   //Adding user name & time of registration
-  userName = message.from.username ?? message.from.id;
+  userName = message.from.username.toString() ?? message.from.id.toString();
   regTime = DateTime.now().toLocal().toString();
 
-  if(DateTime.parse(regTime).isAfter(stopTime)){
-    return teleDart.replyMessage(message, '${message.from.first_name} @${message.from.username} you are late, the registration is over. Hope to see you next week');
+  if (DateTime.parse(regTime).isAfter(stopTime)) {
+    return teleDart.replyMessage(message,
+        '${message.from.first_name} @${message.from.username} you are late, the registration is over. Hope to see you next week');
   }
-  
+
   dynamic result = {
     'userName': userName,
     'expirience': expr,

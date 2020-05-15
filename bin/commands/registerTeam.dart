@@ -16,7 +16,6 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
 
   List team, solo;
 
-
   // get expirience from reponse
   RegExp exp = RegExp(r'^\/registerteam (.+)$');
   try {
@@ -31,13 +30,14 @@ Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   }
 
   //Adding user name & time of registration
-  userName = message.from.username ?? message.from.id;
+  userName = message.from.username.toString() ?? message.from.id.toString();
   regTime = DateTime.now().toLocal().toString();
 
-  if(DateTime.parse(regTime).isAfter(stopTime)){
-    return teleDart.replyMessage(message, '${message.from.first_name} @${message.from.username} you are late, the registration is over. Hope to see you next week');
+  if (DateTime.parse(regTime).isAfter(stopTime)) {
+    return teleDart.replyMessage(message,
+        '${message.from.first_name} @${message.from.username} you are late, the registration is over. Hope to see you next week');
   }
-  
+
   dynamic result = {
     'userName': userName,
     'expirience': expr,

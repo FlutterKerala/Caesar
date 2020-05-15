@@ -39,10 +39,8 @@ Future<Message> fetch(Message message, TeleDart teleDart) async {
   for (Map element in team) {
     String uName;
     if (isNumeric(element['userName'])) {
-      ChatMember userInfo = await teleDart.telegram
-          .getChatMember(-1001256945986, int.parse(element['userName']));
       uName =
-          '<a href="tg://user?id=${element['userName']}">${userInfo.user.first_name + userInfo.user.last_name ?? ""}</a>';
+          '<a href="tg://user?id=${element['userName']}">${element['userName']}</a>';
     } else {
       uName = '@${element['userName']}';
     }
@@ -53,14 +51,8 @@ Future<Message> fetch(Message message, TeleDart teleDart) async {
   for (Map element in solo) {
     String uName;
     if (isNumeric(element['userName'])) {
-      ChatMember userInfo = await teleDart.telegram
-          .getChatMember(-1001256945986, int.parse(element['userName']));
-      try {
-        uName =
-            '<a href="tg://user?id=${element['userName']}">${userInfo.user.first_name + userInfo.user.last_name ?? ""}</a>';
-      } catch (e) {
-        print(element);
-      }
+      uName =
+          '<a href="tg://user?id=${element['userName']}">${element['userName']}</a>';
     } else {
       uName = '@${element['userName']}';
     }

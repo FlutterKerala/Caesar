@@ -6,10 +6,9 @@ import 'dart:io' as io;
 
 Future<Message> unregister(Message message, TeleDart teleDart) async {
   String userName;
-
-  bool registered = true;
-
   List team, solo;
+
+  int tLen, sLen;
 
   //Adding user name & time of registration
   userName = message.from.username;
@@ -25,27 +24,15 @@ Future<Message> unregister(Message message, TeleDart teleDart) async {
     team = jsonDecode(teamFile.readAsStringSync());
     solo = jsonDecode(solofile.readAsStringSync());
 
-    //Checking if the user Already exists
-    team.forEach((element) {
-      if (element['userName'] == userName) {
-        registered = false;
-        team.remove(element);
-        return;
-      }
-    });
+    tLen = team.length;
+    sLen = solo.length;    
 
-    if (registered) {
-      solo.forEach(
-        (element) {
-          if (element['userName'] == userName) {
-            registered = false;
-            solo.remove(element);
-            return;
-          }
-        },
-      );
-    }
-    if (!registered) {
+    //Checking if the user Already exists
+    team.removeWhere((element) => element['userName'] == userName);
+    solo.removeWhere((element) => element['userName'] == userName);
+
+
+    if (tLen == team.length && sLen == solo.length) {
       return teleDart.replyMessage(
           message, 'Hey @${message.from.username} you were not registered :|');
     }

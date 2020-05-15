@@ -8,7 +8,6 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
   String expr;
   String userName;
   String regTime;
-  io.File jsonFile;
 
   bool registered = false;
 

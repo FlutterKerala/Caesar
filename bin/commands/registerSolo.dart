@@ -23,7 +23,7 @@ Future<Message> registerSolo(Message message, TeleDart teleDart) async {
   }
 
   //Adding user name & time of registration
-  userName = message.from.username;
+  userName = message.from.username??message.from.id;
   regTime = DateTime.now().toLocal().toString();
 
   dynamic result = {

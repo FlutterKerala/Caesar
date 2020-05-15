@@ -1,8 +1,10 @@
-# Leaderboard Bot For Telegram
+# LeaderboardBot for Telegram
 
-#### A leaderboard bot built for Flutter Kerala Telegram group's weekly challenge using Teledart Telegram API Wrapper written in Dart💙
+#### A leaderboard bot built for Flutter Kerala Telegram group's weekly challenge
+#### using Teledart Telegram API Wrapper written in Dart 💙
  
 #### Wanna Host Yourself? Ugh! Okay
+
 1. Clone the bot locally
 ``` shell
   git clone https://github.com/FlutterKerala/LeaderBoardBot.git
@@ -14,9 +16,12 @@
     static List<int> sudoUsers = ['Put your telegram user id'];
   }
 ```
+
 3. In terminal run 
 ``` shell
   dart bin/main.dart
 ```
+
+4. [./ceaser.png](And it begins)
 
 #### Leaderboard is created by parsing CSV & make sure you upload csv file with name as week[weeknumber].csv

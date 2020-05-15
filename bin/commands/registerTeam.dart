@@ -4,11 +4,8 @@ import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'dart:io' as io;
 
-<<<<<<< HEAD
 import 'stopreg.dart';
-=======
 import '../constants.dart';
->>>>>>> f56960314016a2f6495fa20294ebcb83ef2607d1
 
 Future<Message> registerTeam(Message message, TeleDart teleDart) async {
   String expr;

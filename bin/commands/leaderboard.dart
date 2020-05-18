@@ -14,18 +14,23 @@ Future<Image> genImage (week, csv) async {
   int textColor = getColor(201, 251, 248);
   int boxColor = getColor(27, 36, 52);
 
-  BitmapFont roboto_reg_64 = BitmapFont.fromZip(io.File("assets/roboto-reg-64.zip").readAsBytesSync());
-  BitmapFont roboto_bold_64 = BitmapFont.fromZip(io.File("assets/roboto-bold-64.zip").readAsBytesSync());
-  BitmapFont roboto_bold_96 = BitmapFont.fromZip(io.File("assets/roboto-bold-96.zip").readAsBytesSync());
+  String asset = (path) =>
+      join(dirname(io.Platform.script.toFilePath()), 'commands', 'assets', path');
+
+  BitmapFont roboto_reg_64 = BitmapFont.fromZip(io.File(assetPath("roboto-reg-64.zip")).readAsBytesSync());
+
+  BitmapFont roboto_bold_64 = BitmapFont.fromZip(io.File(assetPath("roboto-bold-64.zip")).readAsBytesSync());
+
+  BitmapFont roboto_bold_96 = BitmapFont.fromZip(io.File(assetPath("roboto-bold-96.zip")).readAsBytesSync());
 
   // fill image with bgColor
   fill(image, bgColor);
 
   // Draw title
-  drawImage(image, decodePng(io.File("assets/logo.png").readAsBytesSync()), dstX: 150, dstY: 120);
+  drawImage(image, decodePng(io.File(assetPath("logo.png")).readAsBytesSync()), dstX: 150, dstY: 120);
   drawString(image, roboto_bold_64, 384, 150, "Flutter Kerala", color: textColor);
   drawString(image, roboto_bold_96, 384, 230, "Week ${week}", color: textColor);
-  drawImage(image, decodePng(io.File("assets/fk-logo.png").readAsBytesSync()), dstX: 450, dstY: canvasHeight - 220);
+  drawImage(image, decodePng(io.File(assetPath("fk-logo.png")).readAsBytesSync()), dstX: 450, dstY: canvasHeight - 220);
 
   // append user data into image
   int startX = 60;

@@ -16,7 +16,7 @@ Future<Image> genImage (week, csv) async {
   int boxColor = getColor(27, 36, 52);
 
   String assetPath (path) =>
-      join(dirname(io.Platform.script.toFilePath()), 'commands', 'assets', path);
+      join(dirname(io.Platform.script.toFilePath()), 'assets', path);
 
   BitmapFont roboto_reg_64 = BitmapFont.fromZip(io.File(assetPath("roboto-reg-64.zip")).readAsBytesSync());
 

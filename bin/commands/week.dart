@@ -6,7 +6,7 @@ import 'package:path/path.dart';
 import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/teledart.dart';
-import 'leaderboard.dart';
+import '../utils/leaderboard.dart';
 
 Future<Message> week(Message message, TeleDart teleDart) async {
 

@@ -1,4 +1,5 @@
 import 'dart:io' as io;
+import 'package:path/path.dart';
 import 'package:image/image.dart';
 
 Future<Image> genImage (week, csv) async {
@@ -14,8 +15,8 @@ Future<Image> genImage (week, csv) async {
   int textColor = getColor(201, 251, 248);
   int boxColor = getColor(27, 36, 52);
 
-  String asset = (path) =>
-      join(dirname(io.Platform.script.toFilePath()), 'commands', 'assets', path');
+  String assetPath (path) =>
+      join(dirname(io.Platform.script.toFilePath()), 'commands', 'assets', path);
 
   BitmapFont roboto_reg_64 = BitmapFont.fromZip(io.File(assetPath("roboto-reg-64.zip")).readAsBytesSync());
 

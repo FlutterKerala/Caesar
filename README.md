@@ -30,4 +30,4 @@ using Teledart Telegram API Wrapper written in Dart 💙**
 #### Leaderboard is created by parsing CSV & make sure you upload csv file with name as week[weeknumber].csv
 
 #### Geometry for the leaderboard design
-![Geometry][./geom.png]
+![Geometry](./geom.png)

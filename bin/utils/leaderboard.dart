@@ -51,7 +51,7 @@ Future<Image> genImage (week, csv) async {
 	fillRect(image, startX, startY, startX + containerWidth, startY + containerHeight, boxColor);
 
     drawString(image, roboto_reg_64, textX, startY + textPaddingY, rank, color: textColor);
-    drawString(image, roboto_reg_64, textX + 20, startY + textPaddingY, team[1].replaceAll('@', ''),
+    drawString(image, roboto_reg_64, textX + 80, startY + textPaddingY, team[1].replaceAll('@', ''),
         color: textColor);
     drawString(image, roboto_bold_64, textEnd - team[2].length * 40, startY + textPaddingY, team[2], color: textColor);
     startY += containerHeight + containerMargin;

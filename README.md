@@ -5,6 +5,12 @@
 
 **A leaderboard bot built for Flutter Kerala Telegram group's weekly challenge
 using Teledart Telegram API Wrapper written in Dart 💙**
+
+## Commands
+
+| Command | Action |
+|---------|--------|
+| ```/panineerThaliAane``` | Kind of like Hello World but with an elephant and rose water |
  
 #### Wanna Host Yourself? Ugh! Okay
 

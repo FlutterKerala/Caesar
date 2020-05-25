@@ -9,6 +9,7 @@ import 'commands/registerSolo.dart';
 import 'commands/registerTeam.dart';
 import 'commands/start.dart';
 import 'commands/stopreg.dart';
+import 'commands/aana.dart';
 import 'commands/unregister.dart';
 import 'commands/week.dart';
 import 'constants.dart';
@@ -47,6 +48,10 @@ void main(List<String> args) async {
   teleDart
       .onCommand('details')
       .listen((Message message) => details(message, teleDart));
+
+  teleDart
+      .onCommand('panineerThaliAane')
+      .listen((Message message) => aana(message, teleDart));
 
   teleDart
       .onCommand('unregister')

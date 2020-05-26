@@ -1,5 +1,4 @@
-# LeaderboardBot for Telegram
-[Bot](t.me/fkleaderboardbot)
+# [LeaderboardBot](t.me/fkleaderboardbot) for Telegram
 
 ![Leaderboard Bot cover](./cover.png)
 

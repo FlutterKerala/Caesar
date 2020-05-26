@@ -31,7 +31,7 @@ using Teledart Telegram API Wrapper written in Dart 💙**
   dart bin/main.dart
 ```
 
-4. [And it begins](./caeser.jpg)
+4. [And it begins](./caeser.png)
 
 #### Leaderboard is created by parsing CSV & make sure you upload csv file with name as week[weeknumber].csv
 

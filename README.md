@@ -20,7 +20,7 @@ using Teledart Telegram API Wrapper written in Dart 💙**
 2. Navigate to bin/ and open constants.dart in your editor of choice
 ``` dart
   class Constants {
-    static String botKey = 'YOUR API KEY HERE';
+    static String botKey = 'YOUR API KEY HERE'; // Bot token is moved to env variable [BOTTOKEN]
     static List<int> sudoUsers = ['Put your telegram user id'];
   }
 ```
